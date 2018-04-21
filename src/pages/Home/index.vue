@@ -1,0 +1,64 @@
+<script>
+import SwitchButton from "@/components/SwitchButton";
+
+export default {
+  name: "Home",
+  data() {
+    return {
+      sunshine: false,
+      bgColor: 'linear-gradient(red, #f06d06)',
+      activeColor: 'linear-gradient(green, #48C169)'
+    };
+  },
+  components: {
+    SwitchButton
+  },
+  methods: {
+    onChangeStatus() {
+      this.sunshine = !this.sunshine;
+    }
+  }
+};
+</script>
+
+<template>
+  <section class="Home">
+    <switch-button :switch-value="sunshine"
+                   :bg-color="bgColor"
+                   :active-bg-color="activeColor" 
+                   :on-input="onChangeStatus"
+                   toggle-content="&#x2639;"
+                   toggle-active-content="&#9786;"
+                   toggle-font-color="#f06d06"
+                   toggle-active-font-color="#48C169"
+                   toggle-font-weight="bold"
+                   width="400px"
+                   height="200px"/>
+    <div class="text">
+     <span v-if="sunshine">Yesss ! Thank you Mate &#128512; </span>
+     <span v-else>I am sorry , pyaare jaane do ...	&#x1F614;</span>
+    </div>
+  </section>
+</template>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&subset=latin-ext');
+  .Home {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 75vh;
+
+    .text {
+      margin-top: 20px;
+      span {
+        font-size: 20px;
+        color: #833ab7;
+        font-weight: bold;
+      }
+    }
+  }
+</style>
+
