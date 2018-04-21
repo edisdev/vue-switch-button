@@ -2,6 +2,9 @@
 
 > vue swtich button
 
+<img src="./static/resources/sad.png" />
+<img src="./static/resources/happy.png" />
+
 ## Build Setup
 
 ``` bash
