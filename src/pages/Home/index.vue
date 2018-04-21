@@ -14,7 +14,7 @@ export default {
     SwitchButton
   },
   methods: {
-    onChangeStatus() {
+    onChangeValue() {
       this.sunshine = !this.sunshine;
     }
   }
@@ -26,17 +26,17 @@ export default {
     <switch-button :switch-value="sunshine"
                    :bg-color="bgColor"
                    :active-bg-color="activeColor" 
-                   :on-input="onChangeStatus"
                    toggle-content="&#x2639;"
                    toggle-active-content="&#9786;"
                    toggle-font-color="#f06d06"
                    toggle-active-font-color="#48C169"
                    toggle-font-weight="bold"
-                   width="400px"
-                   height="200px"/>
+                   @input="onChangeValue()"
+                   width="180px"
+                   height="100px"/>
     <div class="text">
      <span v-if="sunshine">Yesss ! Thank you Mate &#128512; </span>
-     <span v-else>I am sorry , pyaare jaane do ...	&#x1F614;</span>
+     <span v-else>I Am Sorry , Mere Pyaare Jaane Do ...	&#x1F614;</span>
     </div>
   </section>
 </template>

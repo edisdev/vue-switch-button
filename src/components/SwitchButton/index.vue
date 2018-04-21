@@ -1,10 +1,6 @@
 <script>
 export default {
   props: {
-    onInput: {
-      type: Function,
-      required: true
-    },
     switchValue: {
       type: Boolean,
       required: true
@@ -60,16 +56,15 @@ export default {
   },
   data() {
     return {
-      toggleValue: false
+      toggleValue: this.switchValue
     };
   },
-  created() {
-    this.toggleValue = this.switchValue;
+  watch: {
+    toggleValue(value) {
+      this.$emit('input', value);
+    }
   },
   methods: {
-    onSwitch() {
-      this.toggleValue = !this.toggleValue;
-    },
     getSwitchStyle() {
       const style = {
         bgColor: this.toggleValue ? this.activeBgColor : this.bgColor,
@@ -116,8 +111,8 @@ export default {
   <div class="SwitchButton">
     <input id="switchInput" 
            type="checkbox"
-           v-bind:style ="getSwitchStyle()" 
-           @change="onInput(); onSwitch()">
+           v-model="toggleValue"
+           v-bind:style ="getSwitchStyle()">
     <label for="switchInput"
            v-bind:style ="getToggleStyle()">
        <span v-if="toggleValue" v-html="toggleActiveContent"></span>
