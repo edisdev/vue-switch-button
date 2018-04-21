@@ -6,8 +6,8 @@ export default {
   data() {
     return {
       sunshine: false,
-      bgColor: 'linear-gradient(red, #f06d06)',
-      activeColor: 'linear-gradient(green, #48C169)'
+      bgColor: '#b5b5b5',
+      activeColor: '#009ee0'
     };
   },
   components: {
@@ -27,15 +27,17 @@ export default {
                    :bg-color="bgColor"
                    :active-bg-color="activeColor" 
                    toggle-content="&#x2639;"
+                   toggle-color="#f5f5f5"
+                   toggle-active-color="#f5f5f5"
                    toggle-active-content="&#9786;"
-                   toggle-font-color="#f06d06"
-                   toggle-active-font-color="#48C169"
+                   :toggle-font-color="bgColor"
+                   :toggle-active-font-color="activeColor"
                    toggle-font-weight="bold"
                    @input="onChangeValue()"
                    width="180px"
                    height="100px"/>
     <div class="text">
-     <span v-if="sunshine">Yesss ! Thank you Mate &#128512; </span>
+     <span class="active" v-if="sunshine">Yesss ! Thank you Mate &#128512; </span>
      <span v-else>I Am Sorry , Mere Pyaare Jaane Do ...	&#x1F614;</span>
     </div>
   </section>
@@ -55,8 +57,11 @@ export default {
       margin-top: 20px;
       span {
         font-size: 20px;
-        color: #833ab7;
+        color: #b5b5b5;
         font-weight: bold;
+        &.active {
+          color: #009ee0;
+        }
       }
     }
   }
