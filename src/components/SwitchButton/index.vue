@@ -111,12 +111,12 @@ export default {
   <div class="SwitchButton">
     <input id="switchInput" 
            type="checkbox"
-           v-model="toggleValue"
-           v-bind:style ="getSwitchStyle()">
-    <label for="switchInput"
-           v-bind:style ="getToggleStyle()">
-       <span v-if="toggleValue" v-html="toggleActiveContent"></span>
-       <span v-else v-html="toggleContent"></span>
+           v-model="toggleValue">
+    <label for="switchInput"  v-bind:style ="getSwitchStyle()">
+       <div v-bind:style ="getToggleStyle()">
+          <span v-if="toggleValue" v-html="toggleActiveContent"></span>
+          <span v-else v-html="toggleContent"></span>
+        </div>
     </label>
   </div>
 </template>
@@ -125,11 +125,8 @@ export default {
 
 .SwitchButton {
   border: none;
-  position: relative;
   input {
-    appearance: none;
-    cursor: pointer;
-    transition: all 500ms ease;
+    opacity: 0;
     &,
     &:focus {
      outline: none;
@@ -137,15 +134,21 @@ export default {
   }
   }
   label{
-    border-radius: 50%;
-    z-index: 999;
-    position: absolute;
+    position: relative;
     cursor: pointer;
-    transition: left 500ms ease, color 500ms ease, transform 150ms ease;
+    transition: all 500ms ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 1px 0 rgba(0,0,0,.05), 0 2px 2px 0 rgba(0,0,0,.1), 0 3px 3px 0 rgba(0,0,0,.05)
+      div {
+        border-radius: 50%;
+        z-index: 999;
+        position: absolute;
+        cursor: pointer;
+        transition: left 500ms ease, color 500ms ease, transform 150ms ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 1px 0 rgba(0,0,0,.05), 0 2px 2px 0 rgba(0,0,0,.1), 0 3px 3px 0 rgba(0,0,0,.05)
+    }
   }
 }
 </style>

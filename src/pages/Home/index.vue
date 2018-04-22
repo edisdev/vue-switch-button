@@ -34,7 +34,7 @@ export default {
                    :toggle-active-font-color="activeColor"
                    toggle-font-weight="bold"
                    @input="onChangeValue()"
-                   width="180px"
+                   width="210px"
                    height="100px"/>
     <div class="text">
      <span class="active" v-if="sunshine">Yesss ! Thank you Mate &#128512; </span>
