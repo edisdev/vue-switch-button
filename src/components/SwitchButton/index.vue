@@ -126,7 +126,7 @@ export default {
 .SwitchButton {
   border: none;
   input {
-    opacity: 0;
+    display: none;
     &,
     &:focus {
      outline: none;
